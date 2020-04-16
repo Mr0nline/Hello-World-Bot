@@ -1,31 +1,33 @@
-const Discord = require('discord.js');
+//Require discord.js
+const Discord = require("discord.js");
 
-const client = new Discord.Client();
+//create a new client using new login
+const client = new Discord.Client;
 
- 
-
-client.on('ready', () => {
-
-    console.log('Logged in as ${client.user.tag}!');
-
+//Constants Array
+const strArr = ["ready","reconnecting","message","!hi","!help"];
+//Display message when bot comes online
+client.on(strArr[0],()=>{
+    console.log(`Logged in as ${client.user.tag}!`)
 });
 
- 
+//Display message when reconnecting
+client.on(strArr[1],()=>{
+    console.log(`This bot is reconnecting: ${client.user.tag}!`)
+});
 
-client.on('message', message => {
+//check for new messages
+client.on(strArr[2], msg => {
     //converts new messages into lowecase
-    const msgLowered = message.content.toLowerCase();
+    const msgLowered = msg.content.toLowerCase();
     // compares to find if certain command is fired or not
-    if (msgLowered === "!hi") {
+    if (msgLowered === strArr[3]) {
         msg.reply("Yo Hi! Let's play lol :laughing:");
     }
-    else if(msgLowered === "!help") {
+    else if(msgLowered === strArr[4]) {
         msg.reply("Currently I have 2 commands, !hi !help");
     }
 });
 
- 
-
-// THIS  MUST  BE  THIS  WAY
-
-client.login(process.env.BOT_TOKEN);//BOT_TOKEN is the Client Secret
+//use token(password)
+client.login(process.env.BOT_TOKEN);

@@ -1,19 +1,25 @@
 {
+
   "name": "hello-world-bot",
-  "version": "1.0.0",
+
   "description": "",
+
+  "version": "1.0.0",
+
   "main": "app.js",
+
   "scripts": {
+
     "start": "node app.js"
+
   },
-  "keywords": [
-    "MrOnline",
-    "Deviliance"
-  ],
-  "author": "MrOnline, Deviliance",
-  "license": "ISC",
+
   "dependencies": {
-    "discord.js": "^12.1.1",
+
+    "discord.js": "11.1.0",
+
     "request": "2.81.0"
+
   }
+
 }

@@ -3,9 +3,6 @@ const Discord = require("discord.js");
 
 //create a new client using new login
 const client = new Discord.Client;
-const {
-    token
-} = require("./token.json");
 
 //Constants Array
 const strArr = ["ready","reconnecting","message","!hi","!help"];
@@ -33,4 +30,4 @@ client.on(strArr[2], msg => {
 });
 
 //use token(password)
-client.login(token);
+client.login(process.env.BOT_TOKEN);

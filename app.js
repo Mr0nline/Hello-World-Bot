@@ -30,8 +30,9 @@ client.on(strArr[2], msg => {
     } else if (msgLowered === strArr[4]) {
         msg.reply("Currently I have 3 commands, '!hi' '!help' '!build hayabusa'");
     } else if (msgLowered === "who are we?") {
+        msg.channel.send("Finding Identity! Please wait...");
         msg.channel.send("We are Deviliance", {
-            files: ["https://i.ibb.co/4Y4hRfD/Deviliance-Logo.png"]
+            files: ["./Images/DevilianceUser/Deviliance_Logo.png"]
         });
     } else if (msgLowered === "who am i?") {
         for (var i = 0; i < idArr.length; i++) {

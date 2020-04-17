@@ -3,9 +3,6 @@ const Discord = require("discord.js");
 
 //create a new client using new login
 const client = new Discord.Client;
-const {
-    token
-} = require("./token.json");
 var {
     heroes
 } = require("./heroesBuild.json");
@@ -28,7 +25,7 @@ client.on(strArr[1], () => {
 //check for new messages
 client.on(strArr[2], msg => {
     //converts new messages into lowecase
-    console.log(msg.content);
+    //console.log(msg.content);
     const msgLowered = msg.content.toLowerCase();
 
     // !hi command

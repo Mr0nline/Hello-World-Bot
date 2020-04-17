@@ -123,7 +123,7 @@ client.on(strArr[2], msg => {
             client.channels.cache.get("700556396185518220").send("Build request for hero "+finalHeroName+" submitted by <@!"+OrigUser.id+"> has been approved! Thanks for contributing :heart:");
             for (var i = 0; i < heroes.length; i++) {
                 if (finalHeroName===heroes[i].name) {
-                    heroes[i].build = "Here is the build for "+finalHeroName+".\nThis build suggested by <@!"+OrigUser.id+">\n\n"+buildMessage;
+                    heroes[i].build = "Here is the build for "+finalHeroName+".\nThis build suggested by <@!"+OrigUser.id+">\n"+buildMessage;
                 }
             }
         } else {

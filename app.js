@@ -3,6 +3,7 @@ const Discord = require("discord.js");
 
 //create a new client using new login
 const client = new Discord.Client;
+
 // heroes and builds
 var heroes = [
         {"name":"miya", "build":""},
@@ -49,7 +50,7 @@ var heroes = [
         {"name":"hanabi", "build":""},
         {"name":"khufra", "build":""},
         {"name":"saber", "build":""},
-        {"name":"nana", "build":""},
+        {"name":"nana", "build":"Here is the build for nana.\nThis build suggested by <@!700007423540330516>\n\nfor mana regen use mana <:Boots:700662871822041188>, after use <:Glowing_wand:700662784454688828> for burst dmg, then use <:Lightning_Trucheon:700662802817220619> for most dmg out of it"},
         {"name":"karina", "build":""},
         {"name":"akai", "build":""},
         {"name":"bane", "build":""},
@@ -117,7 +118,6 @@ client.on(strArr[1], () => {
 //check for new messages
 client.on(strArr[2], msg => {
     //converts new messages into lowecase
-    //console.log(msg.content);
     const msgLowered = msg.content.toLowerCase();
 
     // !hi command
@@ -213,6 +213,7 @@ client.on(strArr[2], msg => {
             var finalHeroName = heroName.replace(/\s/g, "");
             var OrigUser = client.users.find(user => user.username === submiter);
             client.channels.get("700556396185518220").send("Build request for hero "+finalHeroName+" submitted by <@!"+OrigUser.id+"> has been approved! Thanks for contributing :heart:");
+            for (var i = 0; i < heroes.length; i++) {
                 if (finalHeroName===heroes[i].name) {
                     heroes[i].build = "Here is the build for "+finalHeroName+".\nThis build suggested by <@!"+OrigUser.id+">\n"+buildMessage;
                 }
@@ -226,7 +227,7 @@ client.on(strArr[2], msg => {
     else if (msgLowered.includes("<@!700258171842723940> !reject build") && !msg.author.bot) {
         if (msg.channel.id === "700567874624028682" && msgLowered.includes("> ")) { //this is  mlbb-build-approval
             var removeFirstArrow = msg.content.replace("> ","").replace("<@!700258171842723940> !approve build","");
-            var removeAllArrow = removeFirstArrow.replace(/> /g,"\n");
+            var removeAllArrow = removeFirstArrow.replace(/\n> /g,"\n");
             var splitMessage = removeAllArrow.split("\n-----The build starts from here-----\n");
             var frontMessage = splitMessage[0];
             var buildMessage = splitMessage[1];
@@ -242,6 +243,5 @@ client.on(strArr[2], msg => {
     }
 
 });
-
 //use token(password)
 client.login(process.env.BOT_TOKEN);

@@ -186,7 +186,7 @@ client.on(strArr[2], msg => {
                     var submitedBuild = msgLowered.replace(submitedHeroName, "");
                     msg.channel.send("Thanks you so much <@!" + msg.author.id + "> for submitting build for " + heroes[i].name + ". Your build has been sent for approval in <#700567874624028682>");
                     // msg.channel.send("This build is submitted by <@!"+ msg.author.id + "> for "+ heroes[i].name+".\n\n" + submitedBuild);
-                    client.channels.get("700567874624028682").send("This build is submitted by **" + msg.author.username + "** for " + heroes[i].name + ".\n-----The build starts from here-----\n" + submitedBuild)
+                    client.channels.cache.get("700567874624028682").send("This build is submitted by **" + msg.author.username + "** for " + heroes[i].name + ".\n-----The build starts from here-----\n" + submitedBuild)
                 } else {
                     count++;
                 }
@@ -211,8 +211,8 @@ client.on(strArr[2], msg => {
             var submiter = submiterName[1];
             var heroName = submiterName[2].replace(" for ","").replace(".",""); //submiterName[2] will " for nana."
             var finalHeroName = heroName.replace(/\s/g, "");
-            var OrigUser = client.users.find(user => user.username === submiter);
-            client.channels.get("700556396185518220").send("Build request for hero "+finalHeroName+" submitted by <@!"+OrigUser.id+"> has been approved! Thanks for contributing :heart:");
+            var OrigUser = client.users.cache.find(user => user.username === submiter);
+            client.channels.cache.get("700556396185518220").send("Build request for hero "+finalHeroName+" submitted by <@!"+OrigUser.id+"> has been approved! Thanks for contributing :heart:");
             for (var i = 0; i < heroes.length; i++) {
                 if (finalHeroName===heroes[i].name) {
                     heroes[i].build = "Here is the build for "+finalHeroName+".\nThis build suggested by <@!"+OrigUser.id+">\n"+buildMessage;
@@ -235,8 +235,8 @@ client.on(strArr[2], msg => {
             var submiter = submiterName[1];
             var heroName = submiterName[2].replace(" for ","").replace(".",""); //submiterName[2] will " for nana."
             var finalHeroName = heroName.replace(/\s/g, "");
-            var OrigUser = client.users.find(user => user.username === submiter);
-            client.channels.get("700556396185518220").send("Sorry! Build submission for "+finalHeroName+" submitted by <@!"+OrigUser.id+"> has been rejected! Please submit valid build :sob:");
+            var OrigUser = client.users.cache.find(user => user.username === submiter);
+            client.channels.cache.get("700556396185518220").send("Sorry! Build submission for "+finalHeroName+" submitted by <@!"+OrigUser.id+"> has been rejected! Please submit valid build :sob:");
         } else {
             msg.channel.send("Please quote message first");
         }

@@ -186,7 +186,7 @@ client.on(strArr[2], msg => {
                     var submitedBuild = msgLowered.replace(submitedHeroName, "");
                     msg.channel.send("Thanks you so much <@!" + msg.author.id + "> for submitting build for " + heroes[i].name + ". Your build has been sent for approval in <#700567874624028682>");
                     // msg.channel.send("This build is submitted by <@!"+ msg.author.id + "> for "+ heroes[i].name+".\n\n" + submitedBuild);
-                    client.channels.cache.get("700567874624028682").send("This build is submitted by **" + msg.author.username + "** for " + heroes[i].name + ".\n-----The build starts from here-----\n" + submitedBuild)
+                    client.channels.get("700567874624028682").send("This build is submitted by **" + msg.author.username + "** for " + heroes[i].name + ".\n-----The build starts from here-----\n" + submitedBuild)
                 } else {
                     count++;
                 }

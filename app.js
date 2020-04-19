@@ -42,8 +42,8 @@ new Promise(function (resolve, reject) {
 
         // !help command
         else if (msgLowered === "!help") {
-            if (msg.author.id === "331736432952957718") { //this is me
-                msg.channel.send("Currently I have *3* commands,\n```css\n[!hi] Simple hello reply \n[!who are we/am i?] gets profile pictures \n[!help] : all bot commands list \n[!build (heroname)] : Provides builds information for all heroes. Only valid in #mlbb-builds channel \n[!submit build (heroname) (build description)] Submit the build for any hero, Only valid in #mlbb-builds-submmision channel. \n[!approve build (messageID)] Approve the build. \n[!reject build (messageID)] Reject the build. \n[!download build] Take backup in the heroku terminal. \n```");
+            if (msg.author.id === "331736432957718529") { //this is me
+                msg.channel.send("Currently I have *8* commands,\n```css\n[!hi] Simple hello reply \n[!who are we/am i?] gets profile pictures \n[!help] : all bot commands list \n[!build (heroname)] : Provides builds information for all heroes. Only valid in #mlbb-builds channel \n[!submit build (heroname) (build description)] Submit the build for any hero, Only valid in #mlbb-builds-submmision channel. \n[!approve build (messageID)] Approve the build. \n[!reject build (messageID)] Reject the build. \n[!download build] Take backup in the heroku terminal. \n```");
             } else {
                 msg.channel.send("Currently I have *4* commands,\n```css\n[!hi] Simple hello reply \n[!who are we/am i?] gets profile pictures \n[!help] : all bot commands list \n[!build (heroname)] : Provides builds information for all heroes. Only valid in #mlbb-builds channel \n[!submit build (heroname) (build description)] Submit the build for any hero, Only valid in #mlbb-builds-submmision channel. \n```");
             }

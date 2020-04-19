@@ -42,7 +42,11 @@ new Promise(function (resolve, reject) {
 
         // !help command
         else if (msgLowered === "!help") {
-            msg.channel.send("Currently I have *3* commands,\n```css\n[!hi] Simple hello reply \n[!who are we/am i?] gets profile pictures \n[!help] : all bot commands list \n[!build (heroname)] : Provides builds information for all heroes. Only valid in #mlbb-builds channel \n[!submit build (heroname) (build description)] Submit the build for any hero, Only valid in #mlbb-builds-submmision channel. \n```");
+            if (msg.author.id === "331736432952957718") { //this is me
+                msg.channel.send("Currently I have *3* commands,\n```css\n[!hi] Simple hello reply \n[!who are we/am i?] gets profile pictures \n[!help] : all bot commands list \n[!build (heroname)] : Provides builds information for all heroes. Only valid in #mlbb-builds channel \n[!submit build (heroname) (build description)] Submit the build for any hero, Only valid in #mlbb-builds-submmision channel. \n[!approve build (messageID)] Approve the build. \n[!reject build (messageID)] Reject the build. \n[!download build] Take backup in the heroku terminal. \n```");
+            } else {
+                msg.channel.send("Currently I have *4* commands,\n```css\n[!hi] Simple hello reply \n[!who are we/am i?] gets profile pictures \n[!help] : all bot commands list \n[!build (heroname)] : Provides builds information for all heroes. Only valid in #mlbb-builds channel \n[!submit build (heroname) (build description)] Submit the build for any hero, Only valid in #mlbb-builds-submmision channel. \n```");
+            }
         }
 
         // who are we? command
@@ -100,7 +104,7 @@ new Promise(function (resolve, reject) {
                         var submitedHeroName = "!submit build " + heroesData.heroes[i].name;
                         var submitedBuild = msgLowered.replace(submitedHeroName, "");
                         msg.channel.send("Thanks you so much <@!" + msg.author.id + "> for submitting build for " + heroesData.heroes[i].name + ". Your build has been sent for approval in <#700567874624028682>");
-                        client.channels.cache.get("700567874624028682").send("This build is submitted by **" + msg.author.username + "** for " + heroesData.heroes[i].name + ".\n-----The build starts from here-----\n" + submitedBuild)
+                        client.channels.cache.get("700567874624028682").send("This build is submitted by **" + msg.author.username + "** for " + heroesData.heroes[i].name + ".\n-----The build starts from here-----\n\n" + submitedBuild)
                     } else {
                         count++;
                     }
@@ -140,7 +144,7 @@ new Promise(function (resolve, reject) {
                                 if (finalHeroName === heroesData.heroes[i].name) {
                                     //write data to JSON
                                     try {
-                                        heroesData.heroes[i].build = "Here is the build for " + finalHeroName + ".\nThis build suggested by <@!" + OrigUser.id + ">\n" + buildMessage;;
+                                        heroesData.heroes[i].build = "Here is the build for " + finalHeroName + ".\nThis build suggested by <@!" + OrigUser.id + ">\n\n" + buildMessage;;
                                         fs.writeFile('./heroesBuild.json', JSON.stringify(heroesData), (err) => {
                                             if (err) console.log('Error writing file:', err)
                                         })

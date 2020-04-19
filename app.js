@@ -201,6 +201,5 @@ new Promise(function (resolve, reject) {
         }
     });
 });
-client.login(token);
 //use token(password)
 client.login(process.env.BOT_TOKEN);

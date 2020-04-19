@@ -193,7 +193,14 @@ new Promise(function (resolve, reject) {
                 msg.channel.send("This command can only be used in <#700567874624028682> by members of that channel");
             }
         }
+
+        //download build command
+        else if(msg.channel.id === "700334848749076552" && !msg.author.bot && msgLowered === "!download build"){
+            console.log(JSON.stringify(heroesData));
+            msg.channel.send("Backup log generated!\nOpen heroku terminal and access log by `heroku logs -t --app hello-world-deviliance`");
+        }
     });
 });
+client.login(token);
 //use token(password)
 client.login(process.env.BOT_TOKEN);
